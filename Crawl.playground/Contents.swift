@@ -23,8 +23,7 @@ if( isDirectory.boolValue ) {
                 }
             } catch { print(error, fileURL) }
         }
-    } catch { print(error)
-}
+    } catch { print(error) }
     
 } else {
     
