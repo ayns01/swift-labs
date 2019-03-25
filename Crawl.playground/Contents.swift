@@ -15,7 +15,12 @@ if( isDirectory.boolValue ) {
         for fileURL in contentURLs {
             do {
                 let fileAttributes = try fileURL.resourceValues(forKeys:[.nameKey, .fileSizeKey])
-                print(fileAttributes.name!)
+                print("├─" + fileAttributes.name!)
+                let lowfileURLs = try fileManager.contentsOfDirectory(at: fileURL, includingPropertiesForKeys: [.nameKey, .fileSizeKey], options: .skipsHiddenFiles)
+                for lowfileURL in lowfileURLs {
+                    let lowFileAttributes = try lowfileURL.resourceValues(forKeys:[.nameKey, .fileSizeKey])
+                    print("| └─" + lowFileAttributes.name!)
+                }
             } catch { print(error, fileURL) }
         }
     } catch { print(error)
