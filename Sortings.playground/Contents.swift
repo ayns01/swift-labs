@@ -92,6 +92,37 @@ insertionSort(arraySorted: sampleArray)
 
 // 4. Merge Sort O(n log n)
 // Space-Complexity O(n)
+func merge(left:[Int],right:[Int]) -> [Int] {
+    var mergedList = [Int]()
+    var left = left
+    var right = right
+    
+    while left.count > 0 && right.count > 0 {
+        if left.first! < right.first! {
+            mergedList.append(left.removeFirst())
+        } else {
+            mergedList.append(right.removeFirst())
+        }
+    }
+    
+    print(mergedList)
+    
+    return mergedList + left + right
+}
+
+func mergeSort(arraySorted:[Int]) -> [Int] {
+    guard arraySorted.count > 1 else {
+        return arraySorted
+    }
+    
+    let leftArray = Array(arraySorted[0..<arraySorted.count/2])
+    let rightArray = Array(arraySorted[arraySorted.count/2..<arraySorted.count])
+    
+    return merge(left: mergeSort(arraySorted:leftArray), right: mergeSort(arraySorted:rightArray))
+}
+
+print(mergeSort(arraySorted: sampleArray))
+
 
 
 // 5. Quick Sort O(n log n)
