@@ -127,6 +127,18 @@ print(mergeSort(arraySorted: sampleArray))
 
 // 5. Quick Sort O(n log n)
 // Space-Complexity O(1) (in-place)
+func quickSort(arraySorted: [Int]) -> [Int] {
+    if arraySorted.isEmpty { return [] }
+    
+    let first = arraySorted.first!
+    
+    let smallerOrEqual = arraySorted.dropFirst().filter { $0 <= first }
+    let larger = arraySorted.dropFirst().filter { $0 > first }
+    
+    return quickSort(arraySorted: smallerOrEqual) + [first] + quickSort(arraySorted: larger)
+}
+
+print(quickSort(arraySorted: sampleArray))
 
 // quickSort()
 // partition() -> Int
