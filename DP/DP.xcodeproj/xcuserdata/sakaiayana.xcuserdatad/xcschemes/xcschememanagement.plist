@@ -24,6 +24,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>NonDecreasingDigits.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 		<key>PrettyNumber.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
